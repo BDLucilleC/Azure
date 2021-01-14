@@ -1,5 +1,5 @@
 {
-	"name": "Recovered",
+	"name": "SrcRecovered",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ConnLocalFile",
