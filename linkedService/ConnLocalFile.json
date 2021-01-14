@@ -1,0 +1,17 @@
+{
+	"name": "ConnLocalFile",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\lcameleyse\\OneDrive - Business & Decision\\210113 - Microsoft Azure\\Données",
+			"userId": "BETD\\lcameleyse",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ZjEyOTQ0MS0yMjQ0LTQ3MzctOGRiOS03MDk3YzQxYzNmYjkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "MyLocalFiles",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
