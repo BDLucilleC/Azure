@@ -290,7 +290,14 @@
 			{
 				"name": "AgeSpecific",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Testing",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -566,12 +573,6 @@
 				"dependsOn": [
 					{
 						"activity": "Hospital",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
-					{
-						"activity": "CountryResponse",
 						"dependencyConditions": [
 							"Succeeded"
 						]
