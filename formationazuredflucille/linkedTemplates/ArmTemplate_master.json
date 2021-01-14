@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "formationazuredflucille"
+		},
+		"ConnLocalFile_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ConnLocalFile'"
+		},
+		"ConnLocalFile_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\lcameleyse\\OneDrive - Business & Decision\\210113 - Microsoft Azure\\Données"
+		},
+		"ConnLocalFile_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "BETD\\lcameleyse"
+		},
+		"DataLakeCOVID_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://formationazurelucille.azuredatalakestore.net/webhdfs/v1"
+		},
+		"DataLakeCOVID_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "544fe47f-5772-488f-81a9-fa9de607ecfa"
+		},
+		"DataLakeCOVID_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "32ad602f-d364-45c5-ab7f-b8e199af2da0"
+		},
+		"DataLakeCOVID_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "rg-BDU_EcoleDeLaData"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "formationazuredflucille_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ConnLocalFile_password": {
+						"value": "[parameters('ConnLocalFile_password')]"
+					},
+					"DataLakeCOVID_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('DataLakeCOVID_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"DataLakeCOVID_properties_typeProperties_tenant": {
+						"value": "[parameters('DataLakeCOVID_properties_typeProperties_tenant')]"
+					},
+					"DataLakeCOVID_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('DataLakeCOVID_properties_typeProperties_subscriptionId')]"
+					},
+					"DataLakeCOVID_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('DataLakeCOVID_properties_typeProperties_resourceGroupName')]"
+					},
+					"ConnLocalFile_properties_typeProperties_host": {
+						"value": "[parameters('ConnLocalFile_properties_typeProperties_host')]"
+					},
+					"ConnLocalFile_properties_typeProperties_userId": {
+						"value": "[parameters('ConnLocalFile_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
