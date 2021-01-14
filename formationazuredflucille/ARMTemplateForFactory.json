@@ -1302,6 +1302,38 @@
 				"[concat(variables('factoryId'), '/datasets/SrcTesting')]",
 				"[concat(variables('factoryId'), '/datasets/DestTesting')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "DataIngestion",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2021-01-14T16:56:00",
+						"endTime": "2021-01-14T19:37:00",
+						"timeZone": "Romance Standard Time",
+						"schedule": {}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/DataIngestion')]"
+			]
 		}
 	]
 }
